@@ -1,0 +1,432 @@
+------------------------------------------------------------------------------------------------------------------------
+ADVANCE Network Log Task Report
+Generated 01/04/2021 00:50:33 EST by Mara Hubelbank
+------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------
+Section 1: Dataset Rundown
+------------------------------------------------------------------------------------------------------------------------
+
+Our current dataset includes:
+1360 organizations
+273 awards
+1590 individuals
+2170 individual award roles
+6932 individual jobs
+
+Between these, there are:
+195 grant-receiving organizations
+1590 individuals with at least one award role
+1.4 award roles per individual, on average
+7 award role categories
+112 unique award role titles (before processing)
+11 job categories
+3410 unique job titles (before processing)
+ 
+------------------------------------------------------------------------------------------------------------------------
+
+Among the individual jobs,
+1674 are admin positions (24%)
+218 are director_a positions (3.1%)
+449 are chair positions (6.5%)
+225 are director_c positions (3.2%)
+310 are director_r positions (4.5%)
+148 are director_d positions (2.1%)
+2659 are faculty positions (38%)
+323 are staff positions (4.7%)
+66 are postdoc positions (0.95%)
+827 are non-uni positions (12%)
+4 are student positions (0.058%)
+ 
+------------------------------------------------------------------------------------------------------------------------
+
+Among the individual awards,
+1148 are grantee roles (53%)
+122 are day-to-day roles (5.6%)
+142 are researcher roles (6.5%)
+128 are internal evaluator roles (5.9%)
+456 are external advisor roles (21%)
+125 are external evaluator roles (5.8%)
+49 are external consultant roles (2.3%)
+
+
+------------------------------------------------------------------------------------------------------------------------
+Section 2: Missing Data
+------------------------------------------------------------------------------------------------------------------------
+
+FILE: Individual Jobs (n=6932)
+department column: 6845 rows missing (99%)
+combined_comments column: 2888 rows missing (42%)
+job_end_year column: 2018 rows missing (29%)
+job_start_year_old column: 470 rows missing (6.8%)
+job_start_year column: 464 rows missing (6.7%)
+bio_urls column: 86 rows missing (1.2%)
+job_sequence column: 53 rows missing (0.76%)
+job_category column: 29 rows missing (0.42%)
+employer_name column: 4 rows missing (0.058%)
+employer_id column: 2 rows missing (0.029%)
+person_id column: 0 rows missing (0%)
+name column: 0 rows missing (0%)
+job_title column: 0 rows missing (0%)
+person_job_id column: 0 rows missing (0%)
+
+
+------------------------------------------------------------------------------------------------------------------------
+Section 3: Student and NaN Job Categories
+------------------------------------------------------------------------------------------------------------------------
+
+4 students dropped for the jobs processing task.
+ 
+person 1604 has a student position in row 2788
+person 1981 has a student position in row 4527
+person 2254 has a student position in row 5489
+person 2413 has a student position in row 6118
+
+The jobs/demographics and individual awards for the individuals with student positions are located in:
+> log_student_jobs.csv, log_student_awards.csv
+
+------------------------------------------------------------------------------------------------------------------------
+
+29 no-category positions dropped for the jobs processing task.
+462 start years were set to 0.
+2016 end years were set to 3000.
+ 
+person 1019 has a no-category position in row 102
+person 1045 has a no-category position in row 238
+person 1049 has a no-category position in row 253
+person 1079 has a no-category position in row 388
+person 1090 has a no-category position in row 429
+person 1143 has a no-category position in row 658
+person 1162 has a no-category position in row 754
+person 1304 has a no-category position in row 1420
+person 1314 has a no-category position in row 1466
+person 1321 has a no-category position in row 1495
+person 1387 has a no-category position in row 1845
+person 1422 has a no-category position in row 2019
+person 1576 has a no-category position in row 2642
+person 1590 has a no-category position in row 2718
+person 1620 has a no-category position in row 2862
+person 1676 has a no-category position in row 3123
+person 1783 has a no-category position in row 3646
+person 1856 has a no-category position in row 3979
+person 1888 has a no-category position in row 4106
+person 1986 has a no-category position in row 4543
+person 2042 has a no-category position in row 4741
+person 2115 has a no-category position in row 4971
+person 2152 has a no-category position in row 5120
+person 2153 has a no-category position in row 5121
+person 2223 has a no-category position in row 5367
+person 2266 has a no-category position in row 5532
+person 2475 has a no-category position in row 6314
+person 2507 has a no-category position in row 6450
+person 2527 has a no-category position in row 6539
+
+The jobs/demographics and individual awards for the individuals with NaN-category positions are located in:
+> log_nan_jobs.csv, log_nan_awards.csv files.
+
+
+------------------------------------------------------------------------------------------------------------------------
+Section 4: Universities vs. Non-Universities
+------------------------------------------------------------------------------------------------------------------------
+
+NOTE: The organizations file should be reviewed, since the ASME Board of Governors improperly has a Carnegie ID value,
+so there may be other errors in this data.
+
+736 organizations are programmatically marked as universities. Of these, 620 are US universities, and 116 are non-US.
+624 organizations are programmatically marked as non-universities. These will be ignored in the jobs processing task.
+
+
+------------------------------------------------------------------------------------------------------------------------
+Section 5: Individual Award Date Issues
+------------------------------------------------------------------------------------------------------------------------
+
+These individuals have at least one job associated with being director of an ADVANCE program which starts before they
+entered the network.
+
+Person 1001 has a job as "director of the university of michigan advance program" which starts in year 1995.
+> Their first award started in 2002 at org 44098792.
+Person 1722 has a job as "director of lehigh's nsf-advance grant" which starts in year 2013.
+> Their first award started in 2015 at org 1213318465.
+Person 2110 has a job as "associate director, advance program" which starts in year 2011.
+> Their first award started in 2012 at org 4012281303.
+Person 2210 has a job as "acting director, advance program" which starts in year 2012.
+> Their first award started in 2018 at org 1397069697.
+Person 2210 has a job as "associate director, advance program, and director of the adv..." which starts in year 2014.
+> Their first award started in 2018 at org 1397069697.
+Person 2210 has a job as "director, advance program" which starts in year 2016.
+> Their first award started in 2018 at org 1397069697.
+Person 2293 has a job as "assistant director of ethnography & evaluation research, cen..." which starts in year 1995.
+> Their first award started in 2002 at org 3311607547.
+Person 2359 has a job as "director, adapp-advance" which starts in year 2008.
+> Their first award started in 2018 at org 1397069697.
+
+
+------------------------------------------------------------------------------------------------------------------------
+Section 6: Predicting Job Category Misplacement
+------------------------------------------------------------------------------------------------------------------------
+
+For each category, we output the job titles which contain neither the 15 most frequent terms in their assigned category
+ nor any of the manually defined category keys. This also points to some misspelled job titles, such as "profesor".
+
+Job titles which may not fit in category admin: 
+Person 1018: special advisor to the president
+Person 1021: organizational change management director
+Person 1052: special advisor to the vice-president academic on faculty development
+Person 1053: special advisor to provost for gender
+Person 1071: professor
+Person 1121: wellness programs administrator
+Person 1130: prem program director
+Person 1131: deputy director
+Person 1167: advisor to the president
+Person 1198: budget director
+Person 1239: director, the ethos center
+Person 1343: ciesin senior fellow
+Person 1357: director and professor of statistics
+Person 1386: senior advisor
+Person 1386: senior advisor to the president
+Person 1389: special advisor on research development and external partnerships
+Person 1420: school head
+Person 1467: senior advisor for faculty affairs, office of the provost
+Person 1579: special advisor to the provost for women's leadership
+Person 1761: campus executive officer
+Person 1836: professor
+Person 1845: medical director, quality
+Person 1872: executive director of the office for economic development and innovations management
+Person 1909: executive coordinator
+Person 1951: faculty liaison, academic and research computing
+Person 1960: ombudsperson
+Person 2026: accreditation and assessment manager
+Person 2026: accreditation and assessment consultant
+Person 2066: faculty liaison for tisch college
+Person 2095: advisory board member
+Person 2193: senior advisor to the president
+Person 2244: vp for institutional diversity
+Person 2271: co-chair, bystander intervention committee, stride, advancement of women, equity, and diversity
+Person 2286: executive-in-residence
+Person 2359: senior advisor to the dean for research mentoring at the graduate school
+Person 2387: professor
+Person 2419: assistant vice chancellor for academic affairs, and cic campus liaison
+Person 2519: advisor and founding member, office of continuous improvement and assessment
+Person 2534: aces team member
+Person 2589: university senate chair
+Person 2608: advance program leader
+Person 2609: advance program leader
+
+Job titles which may not fit in category director_a: 
+Person 1415: asme’s board of governors
+Person 1844: founder, uhealth
+
+Job titles which may not fit in category chair: 
+Person 2533: fellow
+
+Job titles which may not fit in category director_c: 
+
+Job titles which may not fit in category director_r: 
+Person 1532: co-founder brains and lattice
+
+Job titles which may not fit in category director_d: 
+
+Job titles which may not fit in category faculty: 
+Person 1033: peine professorship of biosecurity
+Person 1044: wolfe chair, scientific and technological literacy
+Person 1107: clinical supervisor
+Person 1161: coordinator of data science initiative and data science programs
+Person 1204: stephen h weiss presidential fellow
+Person 1214: long-term visitor, institute for mathematics and its applications (ima)
+Person 1214: long-term visitor, institute for mathematics and its applications (ima)
+Person 1242: kate gleason endowed chair
+Person 1276: joint appointment, jones school of management
+Person 1426: joint appt. in fuqua school of business
+Person 1473: president's postdoctoral fellow
+Person 1473: president's postdoctoral scholar
+Person 1529: senior advisor
+Person 1577: chancellor's diversity scholar
+Person 1589: embedded practitioner
+Person 1602: fellow, center for the study of poverty and inequality
+Person 1604: teaching fellow
+Person 1604: graduate advisor
+Person 1607: presidential chair in science
+Person 1679: technical education officer
+Person 1699: professsor
+Person 1718: joseph b. platt chair in effective teaching
+Person 1718: ray and mary ingwersen chair in chemistry
+Person 1720: instructional designer
+Person 1721: joseph a. jennings chair in business
+Person 1727: climate field specialist
+Person 1727: state climatologist
+Person 1750: american council on education fellow
+Person 1751: profesor
+Person 1782: senior fellow (.5 fte), north central regional center for rural development
+Person 1863: teaching fellow
+Person 1866: mathematics scholar in residence
+Person 1899: ace fellow
+Person 1967: grant co-director
+Person 2111: senior fellow
+Person 2165: head tutor in physics and chemistry and physics concentrations.
+Person 2184: h. milton and carolyn j. stewart school chair
+Person 2217: software manager
+Person 2217: software development manager
+Person 2241: andrew banks family preeminence endowed chair
+Person 2257: senior fellow, rwj center for health policy
+Person 2318: george a. and helen dunham cowan chair in human social dynamics company name
+Person 2342: affiliate fellow, center women and work
+Person 2351: founding director of the center for the advancement of multicultural perspectives on science (campos)
+Person 2380: auxiliary investigator
+Person 2381: supplemental instruction leader
+Person 2404: fellow
+Person 2483: equity consultant
+Person 2509: hurlburt chair of mis, school of management
+Person 2513: william bentinck-smith fellow, radcliffe institute for advanced study
+Person 2518: researcher
+Person 2556: program coordinator
+Person 2556: women engineers in advanced academic positions grants
+Person 2571: william f. mclaughlin chair in biology
+Person 2588: university fellow
+Person 2596: guest researcher
+
+Job titles which may not fit in category staff: 
+Person 1112: officer of the institute
+Person 1236: administrator
+Person 1301: administrator
+Person 1520: staff officer
+Person 1673: pre-doctoral intern
+Person 1712: clinical psychologist
+Person 1809: facilitator for outcomes assessment
+Person 1907: volunteer
+Person 1968: data analyst
+Person 1975: administrator
+Person 1975: internal evaluator
+Person 1991: grant writer
+Person 2002: principal policy analyst
+Person 2007: external evaluator
+Person 2015: counselor
+Person 2040: rector
+Person 2078: secretary of mathematics & statistics
+Person 2189: administratvie support supervisor, j. william fulbright college of arts & sciences, school of social work
+Person 2194: webmaster
+Person 2196: data analyst
+Person 2273: curriculum editor
+Person 2290: intern
+Person 2290: scholarly communication librarian
+Person 2358: united education administrator (uea)
+Person 2369: legislative liaison
+Person 2408: unit administrator
+Person 2452: author
+Person 2454: administrator of the social justice institute
+Person 2459: internal evaluator
+Person 2459: internal evaluator
+Person 2473: information technologist
+Person 2558: grants administrator
+Person 2566: coach, executive education
+
+Job titles which may not fit in category postdoc: 
+Person 2585: education coach
+
+
+------------------------------------------------------------------------------------------------------------------------
+Section 7: Location of First, Highest, and Last Jobs
+------------------------------------------------------------------------------------------------------------------------
+
+Found first, highest, and last positions for 95% of the 1590 individuals in our records. (n=1516)
+
+The first jobs of these individuals are:
+27.7% admin positions (n=420)
+3.6% director_a positions (n=55)
+8.0% chair positions (n=122)
+3.2% director_c positions (n=49)
+5.1% director_r positions (n=77)
+3.5% director_d positions (n=53)
+41.0% faculty positions (n=621)
+7.3% staff positions (n=110)
+0.6% postdoc positions (n=9)
+
+The highest jobs of these individuals are:
+36.8% admin positions (n=558)
+5.9% director_a positions (n=90)
+8.5% chair positions (n=129)
+3.6% director_c positions (n=54)
+5.3% director_r positions (n=80)
+3.5% director_d positions (n=53)
+29.9% faculty positions (n=453)
+5.9% staff positions (n=90)
+0.6% postdoc positions (n=9)
+
+The last jobs of these individuals are:
+30.9% admin positions (n=468)
+4.4% director_a positions (n=66)
+7.7% chair positions (n=116)
+2.8% director_c positions (n=43)
+5.5% director_r positions (n=84)
+2.6% director_d positions (n=40)
+39.2% faculty positions (n=594)
+6.5% staff positions (n=98)
+0.5% postdoc positions (n=7)
+ 
+------------------------------------------------------------------------------------------------------------------------
+ 
+74 individuals are missing first, highest, and last positions.
+
+Of the 74 individuals missing at least one of these positions,
+100% have zero jobs which are not categorized as non-uni/student/NaN. (n=74)
+19% have at least one grantee award role. (n=14)
+6.8% have at least one day-to-day award role. (n=5)
+1.4% have at least one researcher award role. (n=1)
+2.7% have at least one internal evaluator award role. (n=2)
+45% have at least one external advisor award role. (n=33)
+19% have at least one external evaluator award role. (n=14)
+11% have at least one external consultant award role. (n=8)
+
+The jobs/demographics and individual awards for the individuals missing positions are located in:
+> log_missing_jobs.csv, log_missing_awards.csv
+ 
+------------------------------------------------------------------------------------------------------------------------
+
+Found first, highest, and last positions for 95% of the 2024 individual award roles in our records. (n=1932)
+
+The first jobs of these individual award roles are:
+28.6% admin positions (n=553)
+4.2% director_a positions (n=82)
+8.0% chair positions (n=155)
+2.6% director_c positions (n=51)
+5.1% director_r positions (n=99)
+4.7% director_d positions (n=90)
+39.8% faculty positions (n=769)
+6.4% staff positions (n=124)
+0.5% postdoc positions (n=9)
+
+The highest jobs of these individual award roles are:
+38.4% admin positions (n=741)
+6.3% director_a positions (n=122)
+8.0% chair positions (n=155)
+3.3% director_c positions (n=63)
+4.9% director_r positions (n=95)
+4.5% director_d positions (n=87)
+29.2% faculty positions (n=565)
+4.9% staff positions (n=95)
+0.5% postdoc positions (n=9)
+
+The last jobs of these individual award roles are:
+29.3% admin positions (n=566)
+4.1% director_a positions (n=80)
+8.2% chair positions (n=159)
+2.8% director_c positions (n=54)
+5.2% director_r positions (n=100)
+4.2% director_d positions (n=81)
+39.8% faculty positions (n=769)
+6.0% staff positions (n=115)
+0.4% postdoc positions (n=8)
+ 
+------------------------------------------------------------------------------------------------------------------------
+ 
+92 individual award roles are missing first, highest, and last positions.
+
+Of the 92 individual award roles missing at least one of these positions,
+100% have zero jobs which are not categorized as non-uni/student/NaN. (n=92)
+15% have at least one grantee award role. (n=14)
+5.4% have at least one day-to-day award role. (n=5)
+1.1% have at least one researcher award role. (n=1)
+2.2% have at least one internal evaluator award role. (n=2)
+36% have at least one external advisor award role. (n=33)
+15% have at least one external evaluator award role. (n=14)
+8.7% have at least one external consultant award role. (n=8)
